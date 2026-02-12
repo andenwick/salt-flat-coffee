@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logs
+*.err.log
+*.out.log
+
+# misc
+nul
+.local-image-names.txt
+.remote-all-image-urls.txt
