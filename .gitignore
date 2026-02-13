@@ -30,6 +30,16 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# dev artifacts
+nul
+.local-image-names.txt
+.remote-all-image-urls.txt
+tasks/
+
+# AI tooling
+CLAUDE.md
+.claude/
+
 # env files (can opt-in for committing if needed)
 .env*
 
