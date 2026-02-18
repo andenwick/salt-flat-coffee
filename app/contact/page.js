@@ -115,12 +115,17 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Map Placeholder */}
+        {/* Google Maps Embed */}
         <section className={styles.map}>
-          <div className={styles.mapPlaceholder}>
-            <span>Map</span>
-            <p>70 S Main, Tooele, UT 84074</p>
-          </div>
+          <iframe 
+            src="https://maps.google.com/maps?q=70+S+Main+St,+Tooele,+UT+84074&output=embed" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            loading="lazy" 
+            allowFullScreen 
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </section>
       </main>
       <Footer />

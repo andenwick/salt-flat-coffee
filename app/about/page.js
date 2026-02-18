@@ -18,40 +18,17 @@ export default function About() {
         {/* Hero — clean text, no image */}
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <ScrollReveal>
-              <span className={styles.heroLabel}>About Salt Flat Coffee</span>
-            </ScrollReveal>
-            <ScrollReveal delay={120}>
-              <h1 className={styles.heroTitle}>
-                Life Caffeinated,
-                <br />
-                <span className={styles.heroAccent}>Coffee Elevated</span>
-              </h1>
-            </ScrollReveal>
-            <ScrollReveal delay={240}>
-              <p className={styles.heroSub}>
-                Premium small batch artisanal roast coffee from Tooele, Utah.
-                Roasted without automation, by artisan roasters who have a
-                passion for good coffee.
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* Facts */}
-        <section className={styles.facts}>
-          <div className="container">
-            <div className={styles.factsGrid}>
-              <ScrollReveal className={styles.fact}>
-                Roasted Without Automation
-              </ScrollReveal>
-              <ScrollReveal className={styles.fact} delay={100}>
-                70 S Main, Tooele, UT
-              </ScrollReveal>
-              <ScrollReveal className={styles.fact} delay={200}>
-                Ships Across America
-              </ScrollReveal>
-            </div>
+            <span className={styles.heroLabel}>About Salt Flat Coffee</span>
+            <h1 className={styles.heroTitle}>
+              Life Caffeinated,
+              <br />
+              <span className={styles.heroAccent}>Coffee Elevated</span>
+            </h1>
+            <p className={styles.heroSub}>
+              Premium small batch artisanal roast coffee from Tooele, Utah.
+              Roasted without automation, by artisan roasters who have a
+              passion for good coffee.
+            </p>
           </div>
         </section>
 

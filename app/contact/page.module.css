@@ -4,14 +4,12 @@
 
 .hero {
   position: relative;
-  height: 40vh;
-  min-height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-black);
-  overflow: hidden;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-height) + var(--space-2xl));
+  padding-bottom: var(--space-xl);
 }
 
 .heroOverlay {
@@ -46,8 +44,8 @@
 
 .heroTitle {
   color: var(--color-cream);
-  margin-bottom: var(--space-md);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-lg);
+  font-size: clamp(2.2rem, 5vw, 4rem);
 }
 
 .heroAccent {
@@ -56,16 +54,22 @@
 }
 
 .heroSub {
-  font-size: 1.125rem;
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--color-gold);
-  max-width: 520px;
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
 }
 
 /* ============================================
-   Contact Grid
+   Contact Section
    ============================================ */
+
+.contact {
+  background: var(--color-black);
+  color: var(--color-cream);
+}
 
 .contactGrid {
   display: grid;
@@ -102,7 +106,7 @@
 .infoText {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: var(--color-gray-light);
 }
 
 .hours {
@@ -115,9 +119,9 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--color-gray-light);
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-cream-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hoursClosed {
@@ -131,7 +135,7 @@
 
 .socialLink {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--color-gray-light);
   transition: color var(--transition);
 }
 
@@ -144,19 +148,20 @@
    ============================================ */
 
 .formWrap {
-  background: var(--color-white);
-  border: 1px solid var(--color-cream-dark);
+  background: var(--color-dark);
+  border: 1px solid rgba(197, 183, 131, 0.12);
   padding: var(--space-xl);
 }
 
 .formTitle {
   font-size: clamp(1.5rem, 3vw, 2rem);
   margin-bottom: 0.5rem;
+  color: var(--color-cream);
 }
 
 .formSub {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--color-gold);
   margin-bottom: var(--space-lg);
   line-height: 1.6;
 }
@@ -185,7 +190,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: var(--color-gold);
 }
 
 .input,
@@ -193,9 +198,9 @@
   padding: 0.875rem 1rem;
   font-family: var(--font-body);
   font-size: 0.9rem;
-  border: 1px solid var(--color-gray-light);
-  background: var(--color-cream);
-  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-cream);
   outline: none;
   transition: border-color var(--transition);
 }
@@ -207,7 +212,7 @@
 
 .input::placeholder,
 .textarea::placeholder {
-  color: var(--color-gray-light);
+  color: var(--color-gray);
 }
 
 .textarea {
@@ -221,30 +226,10 @@
 
 .map {
   height: 400px;
-  background: var(--color-cream-dark);
+  background: var(--color-dark);
 }
 
-.mapPlaceholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.mapPlaceholder span {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  color: var(--color-gray-light);
-  opacity: 0.4;
-}
-
-.mapPlaceholder p {
-  font-size: 0.9rem;
-  color: var(--color-gray-light);
-}
+/* Map Placeholder CSS Removed */
 
 /* ============================================
    Responsive
@@ -252,7 +237,8 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 280px;
+    padding-top: calc(var(--header-height) + var(--space-xl));
+    padding-bottom: var(--space-lg);
   }
 
   .contactGrid {
@@ -265,7 +251,7 @@
   }
 
   .formWrap {
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
 
   .map {

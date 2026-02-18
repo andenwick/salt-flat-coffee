@@ -15,7 +15,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.38;
+  opacity: 0.50;
   z-index: 0;
 }
 
@@ -310,5 +310,15 @@
 
   .newsletterForm {
     flex-direction: column;
+  }
+
+  .heroCtas {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .heroCtas :global(.btn) {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
   }
 }

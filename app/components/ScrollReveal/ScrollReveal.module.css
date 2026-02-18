@@ -10,3 +10,11 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Fallback: if JS hasn't hydrated after paint, don't hide content */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,37 +1,65 @@
+/* ============================================
+   Header — Salt Flat Coffee
+   Transparent → solid on scroll, fullscreen mobile overlay
+   ============================================ */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(7, 6, 6, 0.95);
-  backdrop-filter: blur(10px);
-  height: var(--header-height);
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
+
+.headerScrolled {
+  background: rgba(7, 6, 6, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(197, 183, 131, 0.08);
+}
+
+.headerMenuOpen {
+  background: rgba(7, 6, 6, 0.97);
+}
+
+/* ---- Inner container ---- */
 
 .inner {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--space-md);
-  height: 100%;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* ---- Logo ---- */
+
 .logo {
   display: flex;
   align-items: center;
-  height: 100%;
+  position: relative;
+  z-index: 101;
 }
 
 .logoImg {
-  height: 55px;
+  height: 80px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: screen;
+  transition: height 0.3s ease;
 }
 
-.nav {
+.headerScrolled .logoImg {
+  height: 60px;
+}
+
+/* ---- Desktop Nav ---- */
+
+.desktopNav {
   display: flex;
   align-items: center;
   gap: var(--space-lg);
@@ -39,35 +67,85 @@
 
 .navLink {
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gray-light);
+  color: var(--color-cream);
   transition: color var(--transition);
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
 }
 
 .navLink:hover {
   color: var(--color-gold);
 }
 
-/* Burger menu */
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navLinkActive {
+  color: var(--color-gold);
+}
+
+.navLinkActive::after {
+  width: 100%;
+}
+
+/* ---- CTA Button ---- */
+
+.cta {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--color-gold);
+  padding: 0.625rem 1.5rem;
+  transition: all var(--transition);
+  margin-left: var(--space-sm);
+}
+
+.cta:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-1px);
+  color: var(--color-black);
+}
+
+/* ---- Burger ---- */
+
 .burger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  position: relative;
+  z-index: 101;
 }
 
 .burger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 26px;
+  height: 1.5px;
   background: var(--color-cream);
-  transition: all var(--transition);
+  transition: all 0.35s ease;
+  transform-origin: center;
 }
 
 .burgerOpen span:nth-child(1) {
@@ -76,36 +154,154 @@
 
 .burgerOpen span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .burgerOpen span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* ---- Mobile Fullscreen Overlay ---- */
+
+.mobileOverlay {
+  display: none;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 1.25rem 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.3s ease;
+}
+
+.mobileOverlayOpen .mobileNavLink {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobileNavLabel {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-cream);
+  transition: color var(--transition);
+}
+
+.mobileNavLink:hover .mobileNavLabel,
+.mobileNavLinkActive .mobileNavLabel {
+  color: var(--color-gold);
+}
+
+.mobileNavLinkActive {
+  position: relative;
+}
+
+.mobileNavLinkActive::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 0.25rem auto 0;
+}
+
+.mobileCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-lg);
+  padding: 0.875rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--color-gold);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s ease;
+}
+
+.mobileOverlayOpen .mobileCta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobileCta:hover {
+  background: var(--color-gold-light);
+  color: var(--color-black);
+}
+
+.mobileOverlayFooter {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.mobileFooterText {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+/* ---- Responsive ---- */
+
 @media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+
   .burger {
     display: flex;
   }
 
-  .nav {
+  .logoImg {
+    height: 56px;
+  }
+
+  .headerScrolled .logoImg {
+    height: 48px;
+  }
+
+  .mobileOverlay {
+    display: block;
     position: fixed;
-    top: var(--header-height);
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(7, 6, 6, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: var(--space-xl);
-    transform: translateX(100%);
-    transition: transform var(--transition);
   }
 
-  .navOpen {
-    transform: translateX(0);
-  }
-
-  .navLink {
-    font-size: 1.25rem;
+  .mobileOverlayOpen {
+    opacity: 1;
+    visibility: visible;
   }
 }
