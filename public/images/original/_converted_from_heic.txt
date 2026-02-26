@@ -1,4 +1,0 @@
-site\public\images\original\image_3024x.jpg
-site\public\images\original\ShinerBarrel_3024x.jpg
-site\public\images\original\ShinerBike_1200x1200.jpg
-site\public\images\original\ShinerTable_1200x1200.jpg

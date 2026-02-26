@@ -54,7 +54,15 @@ next-env.d.ts
 *.err.log
 *.out.log
 
-# misc
-nul
-.local-image-names.txt
-.remote-all-image-urls.txt
+# images (large binaries, tracked via hosting/CDN)
+public/images/blog/
+public/images/hero/
+public/images/homepage/
+public/images/products/
+*.heic
+*.HEIC
+
+# scratchpad text files
+_converted_from_heic.txt
+_downloaded_now.txt
+_source_urls.txt
