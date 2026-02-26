@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
@@ -19,7 +19,7 @@ export default function Header() {
   const headerRef = useRef(null);
   const rafRef = useRef(null);
 
-  // Scroll listener with rAF to avoid jank (per skill learnings)
+  // Throttle scroll handler with rAF to avoid layout thrashing
   useEffect(() => {
     const onScroll = () => {
       if (rafRef.current) return;
